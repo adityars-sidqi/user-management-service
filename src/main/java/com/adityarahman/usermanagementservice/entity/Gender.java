@@ -1,12 +1,15 @@
 package com.adityarahman.usermanagementservice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
-@AllArgsConstructor
-@Getter
 public enum Gender {
-    MALE('M'), FEMALE('F');
+    MALE("M"), FEMALE("F");
 
-    private final char code;
+    private final String code;
+
+    Gender(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
 }

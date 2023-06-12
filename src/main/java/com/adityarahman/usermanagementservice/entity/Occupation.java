@@ -13,6 +13,7 @@ public enum Occupation {
     TNI("TNI"),
     POLRI("POLRI"),
     MAHASISWA("MHS"),
+    IBU_RUMAH_TANGGA("IRT"),
     BELUM_BEKERJA("BB");
 
     private final String code;

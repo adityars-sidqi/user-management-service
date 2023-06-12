@@ -1,39 +1,42 @@
 package com.adityarahman.usermanagementservice.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-public class UserAuthentication {
+public class MasterUser {
+
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(name = "username")
-    private String username;
-
-    @Column(name = "password")
-    private String password;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
+    private String nik;
+    private String fullName;
+    private Gender gender;
+    private LocalDate birthDate;
+    private Religion religion;
+    private Occupation occupation;
+    private MaritalStatus maritalStatus;
+    private String address;
+    private String email;
+    private Long neighbourhoodId;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        UserAuthentication that = (UserAuthentication) o;
+        MasterUser that = (MasterUser) o;
         return getId() != null && Objects.equals(getId(), that.getId());
     }
 
